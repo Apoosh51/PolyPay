@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Панель куратора — PolyPay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Навигация -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-text">
+        Привет, {{ curator.user.first_name }}!
+      </span>
+      <a href="/admin" class="btn btn-outline-secondary">Админ Панель</a>
+      <a href="/" class="btn btn-outline-secondary">Выйти</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <!-- Выбор группы -->
+    <form method="get" class="row g-2 align-items-end">
+      <div class="col-auto">
+        <label for="group" class="form-label">Группа</label>
+        <select name="group" id="group" class="form-select">
+          <option value="" disabled {% if not selected_group %}selected{% endif %}>Выберите группу</option>
+          {% for grp in groups %}
+            <option value="{{ grp }}" {% if grp == selected_group %}selected{% endif %}>{{ grp }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Показать студентов</button>
+      </div>
+    </form>
+
+    <!-- Форма начисления PolyCoin -->
+    {% if selected_group %}
+      <hr>
+      <h5>Начислить PolyCoin студенту группы {{ selected_group }}</h5>
+      <form method="post" class="row g-2">
+        {% csrf_token %}
+        <div class="col-md-6">
+          {{ credit_form.student.label_tag }}
+          {{ credit_form.student }}
+        </div>
+        <div class="col-md-4">
+          {{ credit_form.amount.label_tag }}
+          {{ credit_form.amount }}
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success w-100">Начислить</button>
+        </div>
+      </form>
+    {% endif %}
+
+    <!-- Список переводов -->
+    <hr>
+    <h5>Чеки переводов</h5>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Студент</th>
+          <th>Сумма</th>
+          <th>Статус</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tr in transfers %}
+          <tr>
+            <td>{{ tr.created_at|date:"d.m.Y H:i" }}</td>
+            <td>{{ tr.to_student.user.get_full_name }}</td>
+            <td>{{ tr.amount }} PC</td>
+            <td>
+              {% if tr.canceled %}<span class="text-muted">Отменён{% else %}Выполнен{% endif %}
+            </td>
+            <td>
+              {% if not tr.canceled and tr.created_at|timesince < "0:15:00" %}
+                <a href="{% url 'cancel_transfer' tr.pk %}" class="btn btn-sm btn-danger">Отменить</a>
+              {% else %}
+                —
+              {% endif %}
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="5" class="text-center">Переводов нет</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

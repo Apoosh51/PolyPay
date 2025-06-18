@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<!--banner-->
+<banner class="banner">
+    <div class="container">
+        <div class="banner-slides">
+
+            <div class="banner-slide active">
+                <video autoplay muted loop playsinline>
+                    <source src="https://almatypolytech.edu.kz/static/videos/output.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+
+            <div class="banner-slide">
+                <img src="{% static 'img/banner1.png' %}" alt="Слайд 2">
+            </div>
+
+            <div class="banner-slide">
+                <img src="{% static 'img/banner2.png' %}" alt="Слайд 3">
+            </div>
+        </div>
+
+        <div class="banner-dots">
+            <input type="radio" name="banner-radio" id="dot-1" checked>
+            <label for="dot-1"></label>
+
+            <input type="radio" name="banner-radio" id="dot-2">
+            <label for="dot-2"></label>
+
+            <input type="radio" name="banner-radio" id="dot-3">
+            <label for="dot-3"></label>
+        </div>
+    </div>
+</banner>
+
+<!--college-tour-->
+<div class="container">
+    <section class="college-tour">
+        <div class="text-content">
+            <h2>Добро пожаловать в наш колледж</h2>
+            <p>Мы рады каждому новому гостю! Записывайся на <br> экскурсию и познакомься с нашими возможностями.</p>
+            <a href="https://wa.me/77071710800?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%20%D0%A5%D0%BE%D1%82%D0%B5%D0%BB(%D0%B0)%20%D0%B1%D1%8B%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8..."
+                target="_blank" class="tour-button">Записаться на экскурсию</a>
+        </div>
+        <div class="video-content">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npHoIrrA7oK5x6jJRB7dhUagNiQpcA5DiLbGGlVay92hk2qeMyVVXIdQJoq_fid0oRBUvJh_QObRHLDHjx4pxg_zkTfy9z2b3i_E9bXg_keMrkPY5_dOkDXCETklS1KHwcniKYQjw=s1360-w1360-h1020-rw"
+                alt="">
+        </div>
+    </section>
+</div>
+
+<!--features-->
+<div class="container">
+    <div class="features">
+        <div class="feature">
+            <img src="{% static 'img/polycard.png' %}" alt="Стипендия" />
+            <h3>Стипендия на PolyPay</h3>
+            <p>
+                Автоматический перевод вашей стипендии прямо на студенческую карту PolyPay.
+                Всегда вовремя и без очередей!
+            </p>
+            <a href="">Подробнее</a>
+        </div>
+
+        <div class="feature">
+            <img src="{% static 'img/polycoin-cartoon.png' %}" alt="PolyCoin" />
+            <h3>Бонусная система PolyCoin</h3>
+            <p>
+                Получайте PolyCoin за активность: участие в мероприятиях, топ-результаты в учёбе и проекты.
+                Накопленные монеты увеличивают ваш «портфель»!
+            </p>
+        </div>
+
+        <div class="feature">
+            <img src="{% static 'img/polyjacket.png' %}" alt="Обмен" />
+            <h3>Обмен на студенческую экипировку</h3>
+            <p>
+                Обменивайте PolyCoin на спецодежду, мерч колледжа и другие приятные бонусы.
+                Учитесь стильно и с комфортом!
+            </p>
+        </div>
+
+        <div class="feature">
+            <img src="{% static 'img/polysafety.png' %}" alt="Безопасность" />
+            <h3>Безопасность ваших средств</h3>
+            <p>
+                Никогда не сообщайте пароль и код из SMS-уведомлений.
+                PolyPay никогда не запрашивает данные карты или пароль по телефону или письмом.
+                Остерегайтесь мошенников!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--exchange-->
+<div class="container">
+    <section class="exchange-section" id="exchange-rates">
+        <div class="container exchange-box">
+            <h2 class="exchange-title">Курсы валют</h2>
+            <div class="exchange-grid">
+
+                <!-- USD -->
+                <div class="exchange-card">
+                    <div class="exchange-header">
+                        <img src="https://flagcdn.com/us.svg" width="24" alt="USD">
+                        <span>USD</span>
+                    </div>
+                    <div class="exchange-label">Покупка</div>
+                    <div class="exchange-rate">499.00 ₸</div>
+                    <div class="exchange-label">Продажа</div>
+                    <div class="exchange-rate">505.00 ₸</div>
+                </div>
+
+                <!-- EUR -->
+                <div class="exchange-card">
+                    <div class="exchange-header">
+                        <img src="https://flagcdn.com/eu.svg" width="24" alt="EUR">
+                        <span>EUR</span>
+                    </div>
+                    <div class="exchange-label">Покупка</div>
+                    <div class="exchange-rate">545.00 ₸</div>
+                    <div class="exchange-label">Продажа</div>
+                    <div class="exchange-rate">552.00 ₸</div>
+                </div>
+
+                <!-- CNY -->
+                <div class="exchange-card">
+                    <div class="exchange-header">
+                        <img src="https://flagcdn.com/cn.svg" width="24" alt="CNY">
+                        <span>CNY</span>
+                    </div>
+                    <div class="exchange-label">Покупка</div>
+                    <div class="exchange-rate">68.50 ₸</div>
+                    <div class="exchange-label">Продажа</div>
+                    <div class="exchange-rate">69.20 ₸</div>
+                </div>
+
+            </div>
+            <div class="exchange-footer">
+                <span>Актуально на 01.06.2025</span>
+                <a href="#">Посмотреть все</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!--map-->
+<div class="container">
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13430.918379679084!2d76.8432397472676!3d43.246454808350855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883699af1c02faf%3A0xc474ee44a1baa11c!2sPolytechnic%20College!5e0!3m2!1skk!2skz!4v1744026887068!5m2!1skk!2skz"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+{% endblock %}

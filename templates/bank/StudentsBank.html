@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Банк студента — PolyPay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-text">{{ student.user.get_full_name }}</span>
+      <a href="/" class="btn btn-outline-secondary">Выйти</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <!-- Балансы -->
+    <div class="row mb-4">
+      <div class="col-sm-6 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h6 class="text-muted">Баланс KZT</h6>
+            <h3>{{ student.kzt_balance }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h6 class="text-muted">Баланс PolyCoin</h6>
+            <h3>{{ student.polycoin_balance }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Конвертация -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Конвертация (1 PC = 10 KZT)</h5>
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          {{ conversion_form.non_field_errors }}
+          <div class="col-md-4">
+            {{ conversion_form.direction.label_tag }}
+            {{ conversion_form.direction }}
+            {% for err in conversion_form.direction.errors %}
+              <div class="text-danger small">{{ err }}</div>
+            {% endfor %}
+          </div>
+          <div class="col-md-4">
+            {{ conversion_form.amount.label_tag }}
+            {{ conversion_form.amount }}
+            {% for err in conversion_form.amount.errors %}
+              <div class="text-danger small">{{ err }}</div>
+            {% endfor %}
+          </div>
+          <div class="col-md-2 d-grid">
+            <button type="submit" name="action" value="convert" class="btn btn-secondary">
+              Конвертировать
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Перевод -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Перевод средств</h5>
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          {{ transfer_form.non_field_errors }}
+          <div class="col-md-4">
+            {{ transfer_form.phone.label_tag }}
+            {{ transfer_form.phone }}
+            {% for err in transfer_form.phone.errors %}
+              <div class="text-danger small">{{ err }}</div>
+            {% endfor %}
+          </div>
+          <div class="col-md-3">
+            {{ transfer_form.amount.label_tag }}
+            {{ transfer_form.amount }}
+            {% for err in transfer_form.amount.errors %}
+              <div class="text-danger small">{{ err }}</div>
+            {% endfor %}
+          </div>
+          <div class="col-md-3">
+            {{ transfer_form.currency.label_tag }}
+            {{ transfer_form.currency }}
+          </div>
+          <div class="col-md-2 d-grid">
+            <button type="submit" name="action" value="transfer" class="btn btn-primary">
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

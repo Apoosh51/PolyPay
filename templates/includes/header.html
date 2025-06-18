@@ -1,0 +1,51 @@
+{% load static %}
+<header id="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="/">
+                    <img id="site-logo" width="70" src="{% static 'img/polylogo.png' %}"
+                        data-light-logo="{% static 'img/polylogo-dark.png' %}"
+                        data-dark-logo="{% static 'img/polylogo.png' %}" alt="Polytech Logo">
+                </a>
+            </div>
+
+            <nav class="nav-items">
+                <a href="{% url 'shop' %}" class="nav-item">Магазин</a>
+                <a href="{% url 'deposits' %}" class="nav-item">Депозиты</a>
+                <a href="https://almatypolytech.edu.kz/views/vaka/page1.html" class="nav-item">Вакансии</a>
+                <a href="/#exchange-rates" class="nav-item">Акции</a>
+                <a href="{% url 'about_bank' %}" class="nav-item">О банке</a>
+            </nav>
+
+            <nav class="nav-icons">
+                <!--login-link-->
+                <a href="{% url 'login' %}" class="login-link">
+                    <i class="bx bx-log-in login-icon"></i>
+                    <span>Войти</span>
+                </a>
+
+                <!--phone-->
+                <a href="tel:2291832" class="phone-icon-link" aria-label="Позвонить 229 18 32">
+                    <i class="bx bx-phone-call"></i>
+                </a>
+
+                <!--lang-switcher-->
+                <div class="lang-switcher">
+                    <button id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+                        RU <i class="bx bx-chevron-down"></i>
+                    </button>
+                    <ul id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+                        <li role="menuitem"><a href="/ru" class="lang-item">RU</a></li>
+                        <li role="menuitem"><a href="/kz" class="lang-item">KZ</a></li>
+                    </ul>
+                </div>
+
+                <!--dark made-->
+                <button id="theme-toggle" aria-label="Переключить тему">
+                    <i class="bx bx-sun"></i>
+                </button>
+            </nav>
+        </div>
+    </div>
+</header>

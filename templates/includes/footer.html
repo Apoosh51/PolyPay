@@ -1,0 +1,63 @@
+{% load static %}
+<footer id="footer">
+    <div class="container">
+        <div class="footer-top">
+            <!-- Логотип и описание -->
+            <div class="footer-col logo-col">
+                <div class="header-logo">
+                    <a href="/">
+                        <img id="site-logo" width="70" src="{% static 'img/polylogo.png' %}"
+                            data-light-logo="{% static 'img/polylogo-dark.png' %}"
+                            data-dark-logo="{% static 'img/polylogo.png' %}" alt="Polytech Logo">
+                    </a>
+                </div>
+                <p>Внутриколледжная банковская система PolyPay — удобно, быстро и безопасно.</p>
+                <div class="social-icons">
+                    <a href="@Poletehnic_bot" aria-label="Telegram"><i class="bx bxl-telegram"></i></a>
+                    <a href="https://www.instagram.com/polytechalmaty/" aria-label="Instagram"><i
+                            class="bx bxl-instagram"></i></a>
+                    <a href="https://www.youtube.com/@almatypolytechedukz" aria-label="YouTube"><i
+                            class="bx bxl-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Полезные ссылки -->
+            <div class="footer-col links-col">
+                <h4>Полезные ссылки</h4>
+                <ul>
+                    <li><a href="{% url 'about_bank' %}">О банке</a></li>
+                    <li><a href="{% url 'about_bank' %}">Услуги</a></li>
+                    <li><a href="{% url 'about_bank' %}">Вопросы и ответы</a></li>
+                    <li><a href="{% url 'about_bank' %}">Поддержка</a></li>
+                </ul>
+            </div>
+
+            <!-- Скачать приложение -->
+            <div class="footer-col download-col">
+                <h4>Скачать приложение</h4>
+                <div class="download-buttons">
+                    <a href="#" class="download-btn" aria-label="App Store">
+                        <i class="bx bxl-apple"></i>
+                        <span>App Store</span>
+                    </a>
+                    <a href="#" class="download-btn" aria-label="Google Play">
+                        <i class='bx bxl-play-store'></i>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Контакты -->
+            <div class="footer-col contact-col">
+                <h4>Контакты</h4>
+                <p><i class="bx bx-phone-call"></i> <a href="tel:2291832">229 18 32</a></p>
+                <p><i class="bx bx-envelope"></i> <a href="mailto:info@poly.edu.kz">info@poly.edu.kz</a></p>
+                <p><i class="bx bx-map"></i> ул. Сайран, Алматы </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© {{ now.year }} Polytechnic College. Все права защищены.</p>
+        </div>
+    </div>
+</footer>

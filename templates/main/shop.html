@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Магазин{% endblock %}
+
+{% block content %}
+<!--nav-links-->
+<div class="container">
+    <nav class="nav-links">
+        <a href="/" class="nav-link">Главная</a> 
+        <span>></span>
+        <a href="{% url 'shop' %}" class="nav-link_last">Магазин</a>
+    </nav>
+</div>
+<!--products-section-->
+<section class="products-section">
+    <div class="container">
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket.png' %}" alt="Название товара 1" />
+                <h3>Bomber Jacket "polytech" Red</h3>
+                <div class="product-prices">
+                    <span class="price">12 000 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 50</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket2.png' %}" alt="Название товара 2" />
+                <h3>Polo "polytech" gray</h3>
+                <div class="product-prices">
+                    <span class="price">8 500 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 30</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket3.png' %}" alt="Название товара 3" />
+                <h3>Bomber Jacket "polytech" Black</h3>
+                <div class="product-prices">
+                    <span class="price">15 200 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 75</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket4.png' %}" alt="Название товара 4" />
+                <h3>T-shirt "polytech" Black</h3>
+                <div class="product-prices">
+                    <span class="price">5 400 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 20</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket5.png' %}" alt="Название товара 5" />
+                <h3>Книга: "Абай Жолы"</h3>
+                <div class="product-prices">
+                    <span class="price">11 300 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 45</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket6.png' %}" alt="Название товара 6" />
+                <h3>Книга: "Python"</h3>
+                <div class="product-prices">
+                    <span class="price">9 800 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 35</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket7.png' %}" alt="Название товара 7" />
+                <h3>Книга: "Алгебра 8 класс"</h3>
+                <div class="product-prices">
+                    <span class="price">7 600 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 25</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'img/polyjacket8.png' %}" alt="Название товара 8" />
+                <h3>Книга: "JavaScript"</h3>
+                <div class="product-prices">
+                    <span class="price">13 900 тг</span>
+                    <span class="bonus"><i class="bx bxs-coin"></i> 60</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--map-->
+<div class="container">
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13430.918379679084!2d76.8432397472676!3d43.246454808350855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883699af1c02faf%3A0xc474ee44a1baa11c!2sPolytechnic%20College!5e0!3m2!1skk!2skz!4v1744026887068!5m2!1skk!2skz"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+{% endblock %}

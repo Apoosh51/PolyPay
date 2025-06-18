@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}О банке{% endblock %}
+
+{% block content %}
+<!--nav-links-->
+<div class="container">
+    <nav class="nav-links">
+        <a href="/" class="nav-link">Главная</a>
+        <span>></span>
+        <a href="{% url 'shop' %}" class="nav-link_last">О банке</a>
+    </nav>
+</div>
+
+<style>
+    .about.page {
+        padding: 0 0 60px 0;
+    }
+
+    .about.page .page__header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .about.page .page__header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    .about.page .page__content>.text {
+        margin-bottom: 40px;
+    }
+
+    .about.page .text p {
+        line-height: 1.7;
+        margin: 0 0 16px;
+    }
+
+    .about.page hr {
+        border: none;
+        height: 1px;
+        background: rgba(248, 248, 255, 0.2);
+        margin: 50px 0;
+    }
+
+    .about.page table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+    }
+
+    .about.page table td {
+        border: 1px solid rgba(248, 248, 255, 0.2);
+        padding: 12px;
+        text-align: center;
+    }
+
+    .about.page .partners {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .about.page .partners .item {
+        flex: 1 1 calc(33.333% - 20px);
+        text-align: center;
+        padding: 16px;
+    }
+
+    .about.page .partners img {
+        max-width: 80px;
+        margin-bottom: 12px;
+    }
+
+    .about.page .item__name p {
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .about.page .steps {
+        margin-bottom: 40px;
+    }
+
+    .about.page .steps .table__row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .about.page .table__step {
+        width: 80px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .about.page .table__text {
+        flex: 1;
+        margin: 0;
+        padding-left: 16px;
+        line-height: 1.6;
+    }
+</style>
+
+<section class="about page">
+    <div class="container">
+        <div class="page__header">
+            <h1>PolyPay</h1>
+        </div>
+        <div class="page__content">
+
+            <div class="text">
+                <p><strong>PolyPay</strong> — внутренняя банковская система Политехнического колледжа Алматы (АГПК),
+                    предназначенная для автоматизированной выдачи студентам стипендий и бонусных монет.</p>
+                <p>Через наш интерфейс преподаватели и администрация могут оперативно начислять и контролировать выплаты
+                    по стипендиям, а также выдавать бонусные монеты за достижения и участие в мероприятиях.</p>
+                <p>Наша миссия — прозрачность, удобство и своевременная выдача финансовой поддержки каждому студенту.
+                </p>
+                <p>Мы стремимся создавать комфортные условия для обучения и мотивации студентов колледжа.</p>
+            </div>
+
+            <hr>
+
+            <div class="text">
+                <h2>Руководство проекта</h2>
+                <p><strong>Иванова Мария Петровна, Руководитель проекта.</strong> Отвечает за разработку и сопровождение
+                    системы PolyPay.</p>
+                <p><strong>Сергеев Алексей Дмитриевич, Технический архитектор.</strong> Проектирует бэкенд и интеграцию
+                    с базой данных.</p>
+                <p><strong>Ким Алина Викторовна, UI/UX-дизайнер.</strong> Отвечает за дизайн интерфейсов и удобство
+                    пользования системой.</p>
+            </div>
+
+            <hr>
+
+            <div class="text">
+                <h2>Крупные «акционеры»</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Политехнический колледж Алматы (АГПК)</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text">
+                <h2>PolyPay является участником:</h2>
+                <div class="partners">
+                    <div class="item">
+                        <img src="https://bankffin.kz/images/partners/kdif.png" alt="KDIF">
+                        <div class="item__name">
+                            <p>Фонда гарантирования депозитов</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://bankffin.kz/images/partners/kase.png" alt="KASE">
+                        <div class="item__name">
+                            <p>Казахстанской фондовой биржи (KASE)</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://bankffin.kz/images/partners/visa.png" alt="VISA">
+                        <div class="item__name">
+                            <p>Международных платежных систем VISA и MasterCard</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="text">
+                <h2>Наши ценности</h2>
+                <p>Прозрачность выплат и честность перед студентами.</p>
+                <p>Удобный интерфейс и своевременная поддержка пользователей.</p>
+                <p>Постоянное развитие функционала для повышения мотивации и вовлечённости.</p>
+                <p>Команда профессионалов, готовая решать любые задачи по финансированию студентов.</p>
+            </div>
+
+            <hr>
+
+            <div class="steps">
+                <h2>Этапы развития PolyPay</h2>
+                <div class="table__row">
+                    <div class="table__step">
+                        <p>2025</p>
+                    </div>
+                    <div class="table__text">Запуск пилотного проекта в ИТ-группе, интеграция с учебным порталом.</div>
+                </div>
+                <div class="table__row">
+                    <div class="table__step">
+                        <p>2026</p>
+                    </div>
+                    <div class="table__text">Расширение на все факультеты колледжа, добавление модуля аналитики.</div>
+                </div>
+                <div class="table__row">
+                    <div class="table__step">
+                        <p>2027</p>
+                    </div>
+                    <div class="table__text">Мобильное приложение для студентов и преподавателей.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--map-->
+<div class="container">
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13430.918379679084!2d76.8432397472676!3d43.246454808350855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883699af1c02faf%3A0xc474ee44a1baa11c!2sPolytechnic%20College!5e0!3m2!1skk!2skz!4v1744026887068!5m2!1skk!2skz"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+{% endblock %}
