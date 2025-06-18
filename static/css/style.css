@@ -686,3 +686,246 @@ video {
 .deposits-img img {
     width: 350px;
 }
+
+
+
+/* === Адаптивность === */
+
+/* Всегда растягиваем контейнер под ширину экрана, сохраняя макс-ширину */
+.container {
+    max-width: 1250px;
+    width: 100%;
+    padding: 0 15px;
+    /* отступ по бокам на узких экранах */
+}
+
+/* Брейкпоинт для больших десктопов */
+@media (max-width: 1200px) {
+
+    /* плавно уменьшаем отступы в шапке */
+    .header-content {
+        padding: 16px 10px;
+    }
+
+    .nav-items {
+        gap: 20px;
+    }
+}
+
+/* Планшеты и большие смартфоны */
+@media (max-width: 992px) {
+
+    /* шапка — вертикально */
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-icons {
+        gap: 12px;
+    }
+
+    /* баннер — подгоняем высоту */
+    .banner-slides {
+        height: 300px;
+    }
+
+    /* “Наши направления” */
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* курсы валют */
+    .exchange-grid {
+        flex-direction: column;
+    }
+
+    /* college-tour */
+    .college-tour {
+        flex-direction: column;
+        padding: 3rem 0;
+    }
+
+    .video-content img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* карта */
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+/* Смартфоны */
+@media (max-width: 576px) {
+
+    /* ещё уже шапка */
+    .header-content {
+        padding: 10px;
+    }
+
+    .header-logo img {
+        width: 50px;
+    }
+
+    /* баннер */
+    .banner-slides {
+        height: 200px;
+    }
+
+    /* тексты — чуть помельче */
+    .college-tour h2 {
+        font-size: 1.5rem;
+    }
+
+    .college-tour p {
+        font-size: 0.9rem;
+    }
+
+    /* кнопки */
+    .tour-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* футер — стопка колонок */
+    #footer .footer-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* === Responsive для Shop, Deposits и About Bank === */
+
+/* — Магазин (shop.html) — */
+.products-section .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .products-section .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .products-section .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        text-align: center;
+    }
+}
+
+/* iframe-карта */
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    /* по необходимости можно уменьшить */
+}
+
+@media (max-width: 576px) {
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+/* — Депозиты (deposits.html) — */
+.deposits {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.deposits-block {
+    flex: 1 1 calc(33.333% - 40px);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.deposits-title nav {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+@media (max-width: 992px) {
+    .deposits-block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .deposits-title nav {
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .deposits-block {
+        gap: 10px;
+    }
+
+    .deposits-title p,
+    .deposits-title a {
+        font-size: 0.9rem;
+    }
+}
+
+/* — О банке (about_bank.html) — */
+.about.page .partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .about.page .partners .item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .about.page .partners {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about.page .partners .item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Шаги развития — колонки в стек */
+    .steps .table__row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .table__step {
+        margin-bottom: 8px;
+    }
+
+    /* Таблица — скролл по горизонтали */
+    .about.page table {
+        display: block;
+        overflow-x: auto;
+    }
+}
