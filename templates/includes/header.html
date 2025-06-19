@@ -17,6 +17,10 @@
                 <a href="/#exchange-rates" class="nav-item">Акции</a>
                 <a href="{% url 'about_bank' %}" class="nav-item">О банке</a>
             </nav>
+            
+            <div class="burger-menu" id="burger-menu">
+                <i class='bx  bx-menu'></i>
+            </div>
 
             <nav class="nav-icons">
                 <!--login-link-->
@@ -26,8 +30,9 @@
                 </a>
 
                 <!--phone-->
-                <a href="tel:2291832" class="phone-icon-link" aria-label="Позвонить 229 18 32">
+                <a href="tel:2291832" class="login-link" aria-label="Позвонить 229 18 32">
                     <i class="bx bx-phone-call"></i>
+                    <span>Звокон</span>
                 </a>
 
                 <!--lang-switcher-->
@@ -49,3 +54,14 @@
         </div>
     </div>
 </header>
+
+<script>
+    // Получаем элементы
+    const burgerMenu = document.getElementById('burger-menu');
+    const navItems = document.querySelector('.nav-items');
+
+    // Открытие и закрытие меню
+    burgerMenu.addEventListener('click', () => {
+        navItems.classList.toggle('open');
+    });
+</script>

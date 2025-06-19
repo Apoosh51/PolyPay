@@ -929,3 +929,58 @@ video {
         overflow-x: auto;
     }
 }
+
+/* Скрываем меню на мобильных устройствах */
+.nav-items {
+    display: flex;
+    gap: 20px;
+}
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Мобильная версия — прячем меню и показываем бургер */
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        background-color: var(--background-color);
+        /* Тёмный фон для меню */
+        position: absolute;
+        top: 60px;
+        /* Выше основного контента */
+        left: 0;
+        padding: 10px;
+        z-index: 100;
+    }
+
+    .burger-menu {
+        display: block;
+        font-size: 30px;
+    }
+
+    .burger-menu i {
+        color: var(--text-color);
+    }
+
+    .nav-items.open {
+        display: flex;
+    }
+}
+
+/* Навигация иконок */
+.nav-icons i {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-icons i {
+        display: none;
+    }
+}
